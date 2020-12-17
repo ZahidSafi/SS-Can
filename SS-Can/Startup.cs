@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -27,6 +28,24 @@ namespace SS_Can
             services.AddControllersWithViews();
 
             services.AddRazorPages().AddRazorRuntimeCompilation();
+
+            //services.AddMvc().AddRazorPagesOptions(options => {
+            //    options.Conventions.AddAreaPageRoute("Identity", "/Account/Login", "/Account/Login");
+            //}).SetCompatibilityVersion(CompatibilityVersion.Latest);
+
+            //  services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Latest)
+            //.AddRazorPagesOptions(options =>
+            //{
+            //      options.Conventions.AddAreaPageRoute("Identity", "/Account/Login", "");
+            //});
+
+            //services.AddRazorPages().AddRazorPagesOptions(options =>
+            //{
+            //    options.Conventions.AuthorizePage("/Views");
+            //    options.Conventions.AllowAnonymousToPage("/Identity/Account/Login");
+            //    //options.Conventions.AddAreaPageRoute("Identity", "/Account/Login", "");
+            //});
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -42,10 +61,12 @@ namespace SS_Can
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
+
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
             app.UseRouting();
+
 
             app.UseAuthentication();
 
@@ -59,6 +80,8 @@ namespace SS_Can
 
                 endpoints.MapRazorPages();
             });
+
+
             
         }
     }
