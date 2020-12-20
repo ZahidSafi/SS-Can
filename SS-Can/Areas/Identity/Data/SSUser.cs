@@ -9,5 +9,10 @@ namespace SS_Can.Areas.Identity.Data
     // Add profile data for application users by adding properties to the SSUser class
     public class SSUser : IdentityUser
     {
+        public string ssID { get; set; }
+
+        public string FirstName { get; set; }
+
+        public string LastName { get; set; }
     }
 }

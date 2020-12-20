@@ -35,8 +35,8 @@ namespace SS_Can.Areas.Identity.Data
             //Admin User
 
             SSUser userAdmin = new SSUser();
-            userAdmin.UserName = "admin@utah.edu";
-            userAdmin.Email = "admin@utah.edu";
+            userAdmin.UserName = "ZahidSafi";
+            userAdmin.Email = "zahidsafi956@gmail.com";
             userAdmin.EmailConfirmed = true;
 
             var admin = users.CreateAsync(userAdmin, "123ABC!@#def");
@@ -50,8 +50,8 @@ namespace SS_Can.Areas.Identity.Data
 
             //Admin User 2
             SSUser userAdmin2 = new SSUser();
-            userAdmin2.UserName = "admin@utah.edu";
-            userAdmin2.Email = "admin@utah.edu";
+            userAdmin2.UserName = "JabrailAhmed";
+            userAdmin2.Email = "jabraila.ames@gmail.com";
             userAdmin2.EmailConfirmed = true;
 
             var admin2 = users.CreateAsync(userAdmin2, "123ABC!@#def");

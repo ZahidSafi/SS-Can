@@ -46,6 +46,17 @@ namespace SS_Can.Areas.Identity.Pages.Account
 
         public class InputModel
         {
+
+            [Required]
+            [Display(Name = "First Name")]
+            public string FirstName { get; set; }
+
+
+            [Required]
+            [Display(Name = "Last Name")]
+            public string LastName { get; set; }
+
+
             [Required]
             [EmailAddress]
             [Display(Name = "Email")]
@@ -75,7 +86,11 @@ namespace SS_Can.Areas.Identity.Pages.Account
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
             if (ModelState.IsValid)
             {
-                var user = new SSUser { UserName = Input.Email, Email = Input.Email };
+                var indexAtSign = Input.Email.IndexOf('@');
+                var emailSub = Input.Email.Substring(0, indexAtSign);
+                //SS_ZaSa_zahidsafi956
+                var userName = "SS_" + Input.FirstName.Substring(0, 2) + Input.LastName.Substring(0, 2) + "_" + emailSub;
+                var user = new SSUser { UserName = userName, Email = Input.Email };
                 var result = await _userManager.CreateAsync(user, Input.Password);
                 if (result.Succeeded)
                 {
