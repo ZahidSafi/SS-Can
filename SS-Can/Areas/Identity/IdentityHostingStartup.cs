@@ -20,6 +20,10 @@ namespace SS_Can.Areas.Identity
                     options.UseSqlServer(
                         context.Configuration.GetConnectionString("SSUsersRolesDBConnection")));
 
+                services.AddDefaultIdentity<SSUser>(options => options.SignIn.RequireConfirmedAccount = true)
+                 .AddRoles<IdentityRole>()
+                 .AddEntityFrameworkStores<SSUsersRolesDB>();
+
                 services.Configure<IdentityOptions>(options =>
                 {
                     // Default Password settings.
@@ -31,8 +35,6 @@ namespace SS_Can.Areas.Identity
                     options.Password.RequiredUniqueChars = 1;
                 });
 
-                services.AddDefaultIdentity<SSUser>(options => options.SignIn.RequireConfirmedAccount = true)
-                    .AddEntityFrameworkStores<SSUsersRolesDB>();
             });
         }
     }
