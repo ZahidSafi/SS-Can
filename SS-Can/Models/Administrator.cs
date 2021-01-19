@@ -7,5 +7,10 @@ namespace SS_Can.Models
 {
     public class Administrator
     {
+        public uint ssID { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+
+        public DateTime Dob { get; set; }
     }
 }
